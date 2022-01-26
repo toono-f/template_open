@@ -1,0 +1,61 @@
+.p-modal-area {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.4s;
+  &.is-show {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+.p-modal-bg {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(c(black-nl), 0.7);
+}
+
+.p-modal-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 70%;
+  height: rem(250);
+  background-color: c(white-nl);
+  transform: translate(-50%, -50%);
+  @include l-more-than-mobile {
+    max-width: rem(500);
+  }
+  @include l-mobile {
+    height: mn(250);
+  }
+}
+
+.p-modal-close {
+  position: absolute;
+  top: rem(-20);
+  right: rem(-20);
+  z-index: 2;
+  font-weight: fw(bold);
+  color: c(white-nl);
+  cursor: pointer;
+  @include l-mobile {
+    top: mn(-15);
+    right: mn(-15);
+  }
+}
+
+.p-modal-contents {
+  width: 100%;
+  height: 100%;
+  padding: sh(10, 30);
+  overflow: auto;
+  @include l-mobile {
+    padding: sh-mn(5, 20);
+  }
+}

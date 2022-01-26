@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "websiteName": "",
+    "websiteDomain": "",
+    "themeColor": "#ffffff"
+  },
+  "pages": {
+    "index": {
+      "id": "index",
+      "category": "index",
+      "root": "pages",
+      "title": "タイトルが入ります",
+      "description": "",
+      "directory": "index.html",
+      "path": "",
+      "ogpImg": "ogp.jpg"
+    }
+  }
+}

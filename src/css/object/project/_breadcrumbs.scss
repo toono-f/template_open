@@ -1,0 +1,34 @@
+.p-breadcrumbs-nl {
+  @include flex($ai: baseline, $w: wrap);
+  li {
+    > a,
+    > span {
+      @include fs-all(12, 14);
+      @include flex($ai: center);
+      &:before {
+        display: inline-block;
+        margin-right: rem(10);
+        content: '';
+        border-top: 2px solid c(gray-dk);
+        border-right: 2px solid c(gray-dk);
+        transform: rotate(45deg);
+        @include size(rem(8));
+        @include l-mobile {
+          margin-right: mn(10);
+          @include size(mn(6));
+        }
+      }
+    }
+    &:not(:last-child) {
+      margin-right: rem(20);
+      a {
+        @include hover-opacity;
+      }
+    }
+    &:last-child {
+      a {
+        pointer-events: none;
+      }
+    }
+  }
+}

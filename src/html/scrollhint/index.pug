@@ -1,0 +1,31 @@
+extends ../_layout/_page.pug
+
+block vars
+  -
+    var page = data.pages.scrollhint.index
+
+block contentFixedBefore
+
+block contentStatic
+
+  +heading([page])
+
+  .p-table-scroll.js-scrollable.u-mt-50.u-mb-50
+    table
+      tbody
+        - for(var i = 0; i < 5; i++)
+          tr
+            th
+              |タイトル
+            td
+              |項目内容が入ります
+            td
+              |項目内容が入ります
+            td
+              |項目内容が入ります
+            td
+              |項目内容が入ります
+            td
+              |項目内容が入ります
+
+block contentFixedAfter

@@ -1,0 +1,12 @@
+.c-btn-nl {
+  width: rem(160);
+  padding: rem(10);
+  @include inline-flex($jc: center, $ai: center, $w: nowrap);
+  @include l-mobile {
+    width: mn(160);
+  }
+  @include l-mobile-s {
+    width: 100%;
+    max-width: rem(160);
+  }
+}

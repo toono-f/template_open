@@ -1,0 +1,58 @@
+extends ../_layout/_page.pug
+
+block vars
+  -
+    var page = data.pages.slider.index
+
+block contentFixedBefore
+
+block contentStatic
+
+  +heading([page])
+
+  //- ==========================================================================
+  //- slider01
+  //- ==========================================================================
+  .u-mt-50.u-mb-50
+    .swiper-container.p-slider-nl.c-scroll-in.js-scroll-trigger.js-silde-swiper
+      .swiper-wrapper
+        - for (let x = 1; x <= 5; x++)
+          .swiper-slide
+            //- ①src属性 ②alt属性 ③srcset属性 ③width属性 ④height属性 ⑤lazy属性
+            +picture(`${page.path}assets/images/slider/img0${x}_pc.jpg`,`画像0${x}`,`${page.path}assets/images/slider/img0${x}_pc.jpg`,500,333,"lazy")
+              //- ①srcset属性 ②メディアクエリ値 ③type属性
+              +source(`${page.path}assets/images/slider/img0${x}_sp.webp`,sp,webp)
+              +source(`${page.path}assets/images/slider/img0${x}_sp.jpg`,sp)
+              +source(`${page.path}assets/images/slider/img0${x}_pc.webp`,null,webp)
+
+      //- ページネーション
+      .swiper-pagination
+      //- ナビゲーションボタン
+      .swiper-button-prev
+      .swiper-button-next
+      //- スクロールバー
+      .swiper-scrollbar
+  //- ==========================================================================
+  //- slider02
+  //- ==========================================================================
+  .u-mt-50.u-mb-50
+    .p-slider-wide.swiper-container.js-silde-swiper02
+      ul.p-slider-wide__wrapper.swiper-wrapper
+        - for (let x = 1; x <= 7; x++)
+          li.p-slider-wide__list.swiper-slide
+            p.p-slider-wide__img
+              +picture(`${page.path}assets/images/slider/img0${x}_pc.jpg`,`画像0${x}`,null,500,333,"lazy")
+                +source(`${page.path}assets/images/slider/img0${x}_pc.webp`,null,webp)
+
+      .swiper-scrollbar
+      button(title="戻す" type="button").swiper-button-prev
+      button(title="進める" type="button").swiper-button-next
+
+  //- ==========================================================================
+  //- その他
+  //- ==========================================================================
+  //- p.u-ta-c.u-mt-50.u-mb-50
+    a(href=`${page.path}slider/detail/`).c-btn-nl.u-c-white-nl.u-bg-black-nl.u-h-o
+      |詳細ページへ
+
+block contentFixedAfter

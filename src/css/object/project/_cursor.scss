@@ -1,0 +1,22 @@
+.p-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 5000;
+  display: block;
+  pointer-events: none;
+  mix-blend-mode: exclusion;
+  opacity: 0;
+  transition: opacity 0.5s;
+  @include l-tablet-and-mobile {
+    display: none;
+  }
+  @include print {
+    display: none;
+  }
+  circle {
+    fill: c(white-nl);
+    stroke: c(white-nl);
+    stroke-width: 1px;
+  }
+}

@@ -1,0 +1,7 @@
+.l-footer {
+  width: 100%;
+  padding: rem(15);
+  @include l-mobile {
+    padding: mn(15);
+  }
+}

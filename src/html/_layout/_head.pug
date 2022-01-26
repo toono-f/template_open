@@ -1,0 +1,108 @@
+-
+  let titleMerge = (page.title != '') ? page.title + ' | ' + data.meta.websiteName : data.meta.websiteName;
+  //- 親ページのタイトルを含める場合
+  //- let titleMerge;
+  //- if(page.id == "index") {
+  //-   titleMerge = data.meta.websiteName + ' | ' + page.title;
+  //- } else {
+  //-   let titleParents = [];
+  //-   if(parents) {
+  //-       for(i = 0; i < parents.length; i++) {
+  //-       titleParents += parents[i].title + ' | ';
+  //-     }
+  //-   }
+  //-   titleMerge = (page.title != '') ? page.title + ' | ' + titleParents + data.meta.websiteName : data.meta.websiteName;
+  //- }
+
+meta(charset="utf-8")
+//- IE対応する場合、以下コメント解除
+//- meta(http-equiv="X-UA-Compatible", content="IE=edge")
+title #{titleMerge}
+meta(name="viewport", content="width=device-width")
+meta(name="description", content=page.description)
+//- meta(name="keywords", content=``)
+meta(name="format-detection" content="telephone=no")
+
+//- Viewport制御
+//- script(src="https://cdn.jsdelivr.net/npm/viewport-extra@1.0.4/dist/viewport-extra.min.js")
+//- 最小サイズを375pxに設定
+//- script new ViewportExtra(375)
+//- 最小サイズを375pxに設定かつタブレットでPCの表示を縮小させて見せる場合
+//- script.
+  var ua = navigator.userAgent
+  var sp = (ua.indexOf('iPhone') > 0 || ua.indexOf('Android') > 0 && ua.indexOf('Mobile') > 0)
+  var agent = window.navigator.userAgent.toLowerCase();
+  var ipad = agent.indexOf('ipad') > -1 || agent.indexOf('macintosh') > -1 && 'ontouchend' in document;
+  var tab = (!sp && (ua.indexOf('iPad') > 0 || ua.indexOf('Android') > 0  || ipad == true))
+  new ViewportExtra(tab ? 1024 : 375)
+
+//- CSS
+style .l-page { visibility: hidden; opacity: 0; }
+link(rel="preload" href=`${page.path}assets/css/main.css?${toFileName}` as="style")
+link(rel="stylesheet" href=`${page.path}assets/css/main.css?${toFileName}` media="print" onload="this.media='all'")
+//- preloadを使わない場合
+//- link(rel="stylesheet" href=`${page.path}assets/css/main.css?${toFileName}`)
+
+//- font
+link(rel="preload" href=`${page.path}assets/font/noto-sans/NotoSansJP-Regular.woff2` as="font" type="font/woff2" crossorigin)
+link(rel="preload" href=`${page.path}assets/font/noto-sans/NotoSansJP-Bold.woff2` as="font" type="font/woff2" crossorigin)
+link(rel="preload" href=`${page.path}assets/font/noto-sans/NotoSansJP-Medium.woff2` as="font" type="font/woff2" crossorigin)
+link(rel="preload" href=`${page.path}assets/font/noto-sans/NotoSansJP-Light.woff2` as="font" type="font/woff2" crossorigin)
+link(rel="preload" href=`${page.path}assets/font/montserrat/Montserrat-Bold.woff2` as="font" type="font/woff2" crossorigin)
+link(rel="preload" href=`${page.path}assets/font/montserrat/Montserrat-Medium.woff2` as="font" type="font/woff2" crossorigin)
+
+//- for IE11 （デフォルトではnpmを利用しているためコメントアウト）
+//- script(src="https://cdnjs.cloudflare.com/ajax/libs/object-fit-images/3.2.4/ofi.min.js")
+//- script(src="https://cdnjs.cloudflare.com/ajax/libs/stickyfill/2.1.0/stickyfill.min.js" crossorigin)
+//- script(src="https://polyfill.io/v3/polyfill.min.js?features=HTMLPictureElement%2Cdefault" crossorigin)
+
+//- OGP
+meta(property="og:title" content=`${page.title}`)
+meta(property="og:image" content=``)
+meta(property="og:url" content=`${data.meta.websiteDomain}`)
+meta(property="og:site_name" content=`${data.meta.websiteName}`)
+meta( property="og:description" content=page.description)
+if page.id === "index"
+  meta(property="og:type" content="website")
+else
+  meta(property="og:type" content="article")
+
+//- favicon
+//- link(rel='apple-touch-icon' href=`` sizes="180x180")
+//- link(rel='icon' type='image/png' href=`` sizes="192x192")
+link(rel="icon" href=`${page.path}assets/images/common/favicon.ico`)
+
+//- 構造化 （Corporation）
+//- script(type="application/ld+json").
+//-   {
+//-     "@context" : "https://schema.org",
+//-     "@type" : "Organization",
+//-     "name" : "企業名",
+//-     "founder": "創業者の名前",
+//-     "foundingDate":"2000-04-01", // 設立日
+//-       "description" : "企業の概略",
+//-       "url" : "トップページのURL",
+//-       "logo": "ロゴ画像のURL",
+//-       "telephone" : "+81-00-0000-0000", // 電話番号
+//-       "faxNumber": "+81-00-0000-0000", // FAX番号
+//-       "address": {
+//-         "@type": "PostalAddress",
+//-         "addressLocality": "新宿区",
+//-         "addressRegion": "東京都",
+//-         "postalCode": "160-0020",
+//-         "streetAddress": "5-10-13",
+//-         "addressCountry": "JP"
+//-       },
+//-       "contactPoint" :[
+//-         {
+//-           "@type" : "ContactPoint",
+//-           "telephone" : "+81-00-0000-0000",
+//-           "contactType" : "customer service",
+//-           "email": "",
+//-           "areaServed": "JP"
+//-         }
+//-       ]},
+//-     "sameAs":[
+//-       "",
+//-     ]
+//-   }

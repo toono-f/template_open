@@ -1,0 +1,18 @@
+-
+  const breakpoint_tb = 1024;
+  const breakpoint_sp = 768;
+  const breakpoint_sp_s = 390;
+  const sp_s = `(max-width: ${breakpoint_sp_s - 1}px)` //- iphone12未満の小さなモバイル端末
+  const sp = `(max-width: ${breakpoint_sp - 1}px)` //- 通常のモバイル端末
+  const pc = `(min-width: ${breakpoint_sp}px)` //- iPad Landscape
+  const tb = `(max-width: ${breakpoint_tb}px)` //- iPad Portrait
+  //- ※メディアクエリ同様 em で指定してしまうと、実際の端末で向きを変更したときに正しく動かないので px で指定している
+  const webp = "image/webp"
+
+mixin source(source,media,type)
+  source(srcset=source media=media type=type)
+mixin picture(fallback, alt, srcset, width, height,lazy)
+  picture&attributes(attributes)
+    if block
+      block
+    img(src=fallback alt=alt srcset=srcset width=width height=height loading=lazy)

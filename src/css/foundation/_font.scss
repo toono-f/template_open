@@ -1,0 +1,80 @@
+// @font-face {
+//   font-family: "Noto Sans JP";
+//   font-style: normal;
+//   font-weight: 100;
+//   // font-display: optional
+//     font-display: swap;
+//   src: url("../font/noto-sans/NotoSansJP-Thin.woff2") format("woff2"),
+//     url("../font/noto-sans/NotoSansJP-Thin.woff") format("woff"),
+//     url("../font/noto-sans/NotoSansJP-Thin.otf") format("opentype");
+// }
+
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-weight: 300;
+  // font-display: optional;
+  font-display: swap;
+  src: url('../font/noto-sans/NotoSansJP-Light.woff2') format('woff2'), url('../font/noto-sans/NotoSansJP-Light.woff') format('woff'),
+    url('../font/noto-sans/NotoSansJP-Light.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-weight: 400;
+  // font-display: optional;
+  font-display: swap;
+  src: url('../font/noto-sans/NotoSansJP-Regular.woff2') format('woff2'), url('../font/noto-sans/NotoSansJP-Regular.woff') format('woff'),
+    url('../font/noto-sans/NotoSansJP-Regular.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-weight: 500;
+  // font-display: optional;
+  font-display: swap;
+  src: url('../font/noto-sans/NotoSansJP-Medium.woff2') format('woff2'), url('../font/noto-sans/NotoSansJP-Medium.woff') format('woff'),
+    url('../font/noto-sans/NotoSansJP-Medium.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-weight: 700;
+  // font-display: optional;
+  font-display: swap;
+  src: url('../font/noto-sans/NotoSansJP-Bold.woff2') format('woff2'), url('../font/noto-sans/NotoSansJP-Bold.woff') format('woff'),
+    url('../font/noto-sans/NotoSansJP-Bold.otf') format('opentype');
+}
+
+// @font-face {
+//   font-family: 'Noto Sans JP';
+//   font-style: normal;
+//   font-weight: 900;
+//   // font-display: optional;
+//   font-display: swap;
+//   src: url('../font/noto-sans/NotoSansJP-Black.woff2') format('woff2'), url('../font/noto-sans/NotoSansJP-Black.woff') format('woff'),
+//     url('../font/noto-sans/NotoSansJP-Black.otf') format('opentype');
+// }
+
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  // font-display: optional;
+  font-display: swap;
+  src: url('../font/montserrat/Montserrat-Medium.woff2') format('woff2'), url('../font/montserrat/Montserrat-Medium.woff') format('woff'),
+    url('../font/montserrat/Montserrat-Medium.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  // font-display: optional;
+  font-display: swap;
+  src: url('../font/montserrat/Montserrat-Bold.woff2') format('woff2'), url('../font/montserrat/Montserrat-Bold.woff') format('woff'),
+    url('../font/montserrat/Montserrat-Bold.otf') format('opentype');
+}

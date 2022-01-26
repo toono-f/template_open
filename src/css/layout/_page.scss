@@ -1,0 +1,15 @@
+.l-page {
+  // スムーススクロールバー導入時 以下コメント解除
+  // position: fixed !important;
+  // top: 0;
+  // right: 0;
+  // bottom: 0;
+  // left: 0;
+  display: flex; // footerを下部に固定する
+  flex-flow: column; // footerを下部に固定する
+  min-height: 100vh; // footerを下部に固定する
+  overflow: hidden; // sticky導入時コメントアウト
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}

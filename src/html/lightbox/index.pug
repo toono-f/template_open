@@ -1,0 +1,19 @@
+extends ../_layout/_page.pug
+
+block vars
+  -
+    var page = data.pages.lightbox.index
+
+block contentFixedBefore
+
+block contentStatic
+
+  +heading([page])
+
+  - for (let x = 1; x <= 2; x++)
+    p.u-ta-c.u-mt-50.u-mb-50.c-scroll-in.js-scroll-trigger
+      a(href=`${page.path}assets/images/lightbox/img0${x}.jpg`).u-d-ib.js-modalImg-trigger.c-img-zoom
+        +picture(`${page.path}assets/images/lightbox/img0${x}.jpg`,`画像0${x}`,`${page.path}assets/images/lightbox/img0${x}.jpg`,500,333,"lazy")
+          +source(`${page.path}assets/images/lightbox/img0${x}.webp`,null,webp)
+
+block contentFixedAfter
