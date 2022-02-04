@@ -9,12 +9,12 @@ gulp.task('replaceHtml', () => {
     .src(conf.html.src)
     .pipe($.htmlhint('.htmlhintrc'))
     .pipe($.w3cjs())
-    .pipe(
-      $.htmlmin({
-        collapseWhitespace: true, // 余白を除去する
-        removeComments: true, // HTMLコメントを除去する
-      }),
-    )
+    // .pipe(
+    //   $.htmlmin({
+    //     collapseWhitespace: true, // 余白を除去する
+    //     removeComments: true, // HTMLコメントを除去する
+    //   }),
+    // )
     .pipe($.replace(regJs, 'main.min.js'))
     .pipe($.replace(regCss, 'main.min.css'))
     .pipe(gulp.dest(conf.html.dest));

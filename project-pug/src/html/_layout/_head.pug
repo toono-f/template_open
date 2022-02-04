@@ -2,17 +2,12 @@
   let titleMerge = (page.title != '') ? page.title + ' | ' + data.meta.websiteName : data.meta.websiteName;
 
 meta(charset="utf-8")
-//- IE対応する場合、以下コメント解除
-//- meta(http-equiv="X-UA-Compatible", content="IE=edge")
 title #{titleMerge}
 meta(name="viewport", content="width=device-width")
 meta(name="description", content=page.description)
-//- meta(name="keywords", content=``)
+meta(name="keywords", content=``)
 meta(name="format-detection" content="telephone=no")
-
-//- CSS
-style.
-  .l-page { visibility: hidden; opacity: 0; }
+style .l-page { visibility: hidden; opacity: 0; }
 link(rel="preload" href=`${page.path}assets/css/main.css?${toFileName}` as="style")
 link(rel="stylesheet" href=`${page.path}assets/css/main.css?${toFileName}` media="print" onload="this.media='all'")
 

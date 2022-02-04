@@ -16,9 +16,6 @@ gulp.task('pug', () => {
       }),
     )
     .pipe(
-      // $.data(file => {
-      //   return { data: data };
-      // })
       $.data(() => {
         return { data: data };
       }),

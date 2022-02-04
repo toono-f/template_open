@@ -7,8 +7,8 @@
   @for $i from 10 through 100 {
     &-sp-#{$i} {
       @include l-mobile {
-        // font-size: rem($i);
-        font-size: sp($i); // vwを利用する場合
+        font-size: rem($i);
+        // font-size: sp($i); // vwを利用する場合
       }
     }
   }

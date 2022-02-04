@@ -1,7 +1,6 @@
 const gulp = require('gulp');
 const $ = require('../plugins');
 const conf = require('../conf').copy;
-// const confScripts = require('../conf').vendorScripts; // 1つのファイルに統合する場合コメント解除
 
 gulp.task('copyToDest', () => {
   return gulp.src(conf.dest.src, conf.dest.opts).pipe(gulp.dest(conf.dest.dest));
@@ -25,10 +24,8 @@ gulp.task('copyImgToBuild', () => {
 gulp.task('copyJsToBuild', () => {
   return (
     gulp
-      // .src(conf.js.src, conf.js.opts)
       .src(conf.js.src)
-      .pipe($.uglify()) // 圧縮する
-      // .pipe($.concat(confScripts.concat)) // 1つのファイルに統合する場合コメント解除
+      .pipe($.uglify())
       .pipe(gulp.dest(conf.js.dest))
   );
 });

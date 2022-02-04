@@ -38,27 +38,13 @@
 // vw
 // ==========================================================================
 @function vw($fs, $bp) {
-  // @return ($fs / $bp * 100vw);
   @return math.div($fs, $bp) * 100vw;
 }
 // ==========================================================================
 // vh
 // ==========================================================================
 @function vh($fs, $bp) {
-  // @return ($fs / $bp * 100vh);
   @return math.div($fs, $bp) * 100vh;
-}
-// ==========================================================================
-// vw(tb)
-// ==========================================================================
-@function tb($fs, $bp: 1024) {
-  @return math.div($fs, $bp) * 100vw;
-}
-// ==========================================================================
-// vw(sp)
-// ==========================================================================
-@function sp($fs, $bp: 375) {
-  @return math.div($fs, $bp) * 100vw;
 }
 // ==========================================================================
 // min  max
@@ -82,6 +68,14 @@
   @return _max(vw($values, 375), rem($values * 2));
 }
 // ==========================================================================
+// sp
+// ==========================================================================
+// @function sp($fs, $bp: 375) {
+//   @return math.div($fs, $bp) * 100vw;
+//   // @return _min(vw($fs, 375), rem($fs)); // 最大値を設定する場合(デバイス幅375px以下での表示を考慮）
+//   // @return rem($fs); // remを利用する場合
+// }
+// ==========================================================================
 // padding margin （ショートハンド）
 // ==========================================================================
 @function sh($top, $right, $bottom: $top, $left: $right) {
@@ -91,24 +85,17 @@
     @return rem($top) rem($right) rem($bottom) rem($left);
   }
 }
-@function sh-mn($top, $right, $bottom: $top, $left: $right) {
-  @if ($bottom == $top and $left == $right) {
-    @return mn($top) mn($right);
-  } @else {
-    @return mn($top) mn($right) mn($bottom) mn($left);
-  }
-}
-@function sh-tb($top, $right, $bottom: $top, $left: $right) {
-  @if ($bottom == $top and $left == $right) {
-    @return tb($top) tb($right);
-  } @else {
-    @return tb($top) tb($right) tb($bottom) tb($left);
-  }
-}
-@function sh-sp($top, $right, $bottom: $top, $left: $right) {
-  @if ($bottom == $top and $left == $right) {
-    @return sp($top) sp($right);
-  } @else {
-    @return sp($top) sp($right) sp($bottom) sp($left);
-  }
-}
+// @function sh-tb($top, $right, $bottom: $top, $left: $right) {
+//   @if ($bottom == $top and $left == $right) {
+//     @return tb($top) tb($right);
+//   } @else {
+//     @return tb($top) tb($right) tb($bottom) tb($left);
+//   }
+// }
+// @function sh-sp($top, $right, $bottom: $top, $left: $right) {
+//   @if ($bottom == $top and $left == $right) {
+//     @return sp($top) sp($right);
+//   } @else {
+//     @return sp($top) sp($right) sp($bottom) sp($left);
+//   }
+// }

@@ -15,8 +15,6 @@
   @if ($sp) {
     @include l-mobile {
       font-size: sp($sp);
-      // font-size: mn($sp); // 最大値のみを設定する場合
-      // font-size: cp($value, $value * 2); // 最小値も設定する場合
     }
   }
 }
@@ -31,18 +29,14 @@
   width: rem($w);
   height: rem($h);
 }
-@mixin size-min($w, $h: $w) {
-  width: mn($w);
-  height: mn($h);
-}
-@mixin size-tb($w, $h: $w) {
-  width: tb($w);
-  height: tb($h);
-}
-@mixin size-sp($w, $h: $w) {
-  width: sp($w);
-  height: sp($h);
-}
+// @mixin size-tb($w, $h: $w) {
+//   width: tb($w);
+//   height: tb($h);
+// }
+// @mixin size-sp($w, $h: $w) {
+//   width: sp($w);
+//   height: sp($h);
+// }
 // ==========================================================================
 // border
 // ==========================================================================
@@ -67,18 +61,14 @@
   @include size(rem($x), rem($y));
   border-radius: 50%;
 }
-@mixin circle-min($x, $y: $x) {
-  @include size(mn($x), mn($y));
-  border-radius: 50%;
-}
-@mixin circle-tb($x, $y: $x) {
-  @include size(tb($x), tb($y));
-  border-radius: 50%;
-}
-@mixin circle-sp($x, $y: $x) {
-  @include size(sp($x), sp($y));
-  border-radius: 50%;
-}
+// @mixin circle-tb($x, $y: $x) {
+//   @include size(tb($x), tb($y));
+//   border-radius: 50%;
+// }
+// @mixin circle-sp($x, $y: $x) {
+//   @include size(sp($x), sp($y));
+//   border-radius: 50%;
+// }
 // ==========================================================================
 // center
 // ==========================================================================
@@ -163,14 +153,12 @@
 // hover
 // ==========================================================================
 @mixin hover-opacity {
-  @include l-pc {
+  @media screen and (min-width: $break-point-tablet-l + 0.0625em) and (hover: hover) {
     cursor: pointer;
     transition: opacity 0.5s;
   }
-  &:hover {
-    @include l-pc {
-      opacity: 0.7;
-    }
+  @include hover {
+    opacity: 0.7;
   }
 }
 // ==========================================================================

@@ -64,20 +64,17 @@ $letter-spacings: (
   xs: 0,
 );
 // ==========================================================================
-// m
+// margin / padding
 // ==========================================================================
-$count: 40;
+$count: 100;
 // ==========================================================================
 // break-point（ブラウザのfont-size設定を考慮し、設定単位を px ではなく em で指定）
 // ==========================================================================
 // $break-point-pc-l: 1920px;
-// $break-point-pc-l: 120em; // 1920 * 0.0625 (font-size: 16px)
-
-// $break-point-pc-s: 1500px;
-$break-point-pc-s: 93.75em; // 1500 * 0.0625 (font-size: 16px)
+$break-point-pc-l: 120em; // 1920 * 0.0625 (font-size: 16px)
 
 // $break-point-pc-s: 1366px;
-// $break-point-pc-s: 85.375em; // 1366 * 0.0625 (font-size: 16px)
+$break-point-pc-s: 85.375em; // 1366 * 0.0625 (font-size: 16px)
 
 // $break-point-tablet-l: 1024px;
 $break-point-tablet-l: 64em; // 1024 * 0.0625 (font-size: 16px)

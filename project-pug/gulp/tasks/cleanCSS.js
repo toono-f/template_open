@@ -16,9 +16,7 @@ gulp.task('cleanCss', () => {
           },
         }),
       )
-      // .pipe($.rename({ suffix: '.min' })) // build対象がmain.min.cssのみの場合
       .pipe(
-        // build対象がmain.min.css以外のCSSも存在する場合
         $.rename((path) => {
           if (path.basename.endsWith('main')) {
             path.basename += '.min';

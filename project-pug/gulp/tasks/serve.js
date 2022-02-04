@@ -44,11 +44,3 @@ gulp.task('serve', () => {
     browserSync(conf.dest);
   }
 });
-
-// gulp.task('serve-ejs', () => {
-//   browserSync.init({
-//     server: {
-//       baseDir: conf.dest.server.baseDir,
-//     },
-//   });
-// });

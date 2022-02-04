@@ -40,7 +40,7 @@ module.exports.serve = {
 };
 
 const { DefinePlugin } = require('webpack');
-// const TerserPlugin = require('terser-webpack-plugin');  // license を main.min.jsに含める場合コメント解除
+const TerserPlugin = require('terser-webpack-plugin'); // license を main.min.jsに含める場合コメント解除
 module.exports.scripts = {
   src: [`./${DIR.SRC}/**/*.js`],
   dest: {
@@ -54,7 +54,7 @@ module.exports.scripts = {
     output: {
       filename: `[name].js`,
     },
-    target: ['web', 'es5'], // IE非対応の場合は safari10 まで対応させるようにes6に変更
+    target: ['web', 'es6'], // IEに対応する場合es5を指定
     module: {
       rules: [
         {
@@ -78,9 +78,6 @@ module.exports.scripts = {
             {
               loader: 'css-loader',
               options: {
-                // ソースマップを出力する場合、以下2行コメント解除
-                // sourceMap:
-                // process.env.NODE_ENV === "development" ? true : false,
                 url: false,
                 importLoaders: 2,
               },
@@ -106,9 +103,6 @@ module.exports.scripts = {
             {
               loader: 'sass-loader',
               options: {
-                // ソースマップを出力する場合、以下2行コメント解除
-                // sourceMap:
-                // process.env.NODE_ENV === "development" ? true : false,
                 implementation: require('sass'),
                 sassOptions: {
                   fiber: require('fibers'),
@@ -121,19 +115,18 @@ module.exports.scripts = {
     },
     plugins: [new DefinePlugin(WEBPACK_CONFIG)],
     // license を main.min.jsに含める場合コメント解除
-    // optimization: {
-    //   minimizer: [
-    //     new TerserPlugin({
-    //       extractComments: false,
-    //     }),
-    //   ],
-    // },
+    optimization: {
+      minimizer: [
+        new TerserPlugin({
+          extractComments: false,
+        }),
+      ],
+    },
   },
 };
 
 module.exports.vendorScripts = {
   src: [`./${DIR.SRC}/js/vendor/**/*.js`],
-  // concat: "vendor.js", // 1つのjsファイルに統合する場合コメント解除
   dest: `./${DIR.DEST}${DIR.PATH}/assets/js/`,
 };
 
@@ -145,13 +138,6 @@ module.exports.pug = {
   },
   json: `${DIR.SRC}/data.json`,
 };
-
-// ejsを利用する場合コメント解除
-// module.exports.ejs = {
-//   src: [`${DIR.SRC}/**/*.ejs`, `!${DIR.SRC}/**/_**/*.ejs`, `!${DIR.SRC}/**/_*.ejs`],
-//   dest: `${DIR.DEST}${DIR.PATH}`,
-//   json: `${DIR.SRC}/data.json`,
-// };
 
 module.exports.sass = {
   src: [`${DIR.SRC}/**/*.{sass,scss}`, `!${DIR.SRC}/**/_**/*.{sass,scss}`, `!${DIR.SRC}/**/_*.{sass,scss}`],
@@ -197,7 +183,6 @@ module.exports.copy = {
 
   js: {
     src: [`${DIR.SRC}/js/vendor/**/*.js`],
-    // concat: "vendor.js", // 1つのjsファイルに統合する場合コメント解除
     dest: `${DIR.BUILD}${DIR.PATH}/assets/js/`,
     opts: {
       base: `${DIR.SRC}`,
