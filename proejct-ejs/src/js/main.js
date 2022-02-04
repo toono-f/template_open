@@ -8,8 +8,8 @@
 
 const init = async () => {
   // const browser = uaParser.getBrowser().name;
-  // if (browser === 'Safari') require('./init/safari').default(); // safari
-  // if (browser === "IE") require("./init/ie").default(); // IE
+  // browser === 'Safari' && require('./init/safari').default(); // safari
+  // browser === "IE && require("./init/ie").default(); // IE
   // await sleep(100);
   // switch (pageId) {
   //   case 'index':
