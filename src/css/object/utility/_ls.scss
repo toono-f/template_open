@@ -1,7 +1,0 @@
-.u-ls {
-  @each $key, $value in $letter-spacings {
-    &-#{$key} {
-      letter-spacing: $value;
-    }
-  }
-}

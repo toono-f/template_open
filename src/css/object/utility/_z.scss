@@ -1,5 +1,0 @@
-@for $i from 0 through $count {
-  .u-z-#{$i * 5} {
-    z-index: $i * 5;
-  }
-}

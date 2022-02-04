@@ -1,7 +1,0 @@
-mixin split(string)
-  - var stringArray = string.split('');
-  - for (var i = 0; i < stringArray.length; i++) {
-    - var typo = (stringArray[i] == ' ') ? '&nbsp;' : stringArray[i];
-    span&attributes(attributes)
-      |!{typo}
-  - }
